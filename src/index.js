@@ -1,3 +1,3 @@
 import { saludar } from './saludo.js'
 
-console.log(saludar('Mundo'));
+console.log(saludar('Devops Ilta'));
