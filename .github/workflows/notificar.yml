@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Enviar notificación HTTP POST a ntfy.sh
+        env:
+          COMMIT_AUTHOR: ${{ github.actor }}
+          COMMIT_URL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
         run: |
-          curl -X POST http://ntfy.sh/devops-itla -d "nueva actualizacion de codigo por Elvys Cruz"
+          curl -X POST http://ntfy.sh/devops-itla \
+            -d "Nueva actualización de código por $COMMIT_AUTHOR. Ver commit: $COMMIT_URL"
 
