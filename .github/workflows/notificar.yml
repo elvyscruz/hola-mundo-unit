@@ -1,0 +1,15 @@
+name: Notificar actualización
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  enviar_notificacion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar notificación HTTP POST a ntfy.sh
+        run: |
+          curl -X POST http://ntfy.sh/devops-itla -d "nueva actualizacion de codigo por Elvys Cruz"
+
